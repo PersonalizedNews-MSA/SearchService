@@ -46,7 +46,7 @@ public class NewsController {
 
 
 //    fein client 요청을 받는걸 테스트 해야한다.
-    @GetMapping("/api/favorite/newslinks/{userId}")
+    @GetMapping("/api/favorite/v1/newslinks/{userId}")
     public ResponseEntity<List<String>> favoriteNewsLinks(
             @PathVariable Long userId
     ){

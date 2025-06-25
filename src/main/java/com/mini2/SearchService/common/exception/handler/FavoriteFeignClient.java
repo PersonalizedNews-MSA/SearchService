@@ -11,6 +11,6 @@ import java.util.List;
 
 @FeignClient(name = "favorite-service", url = "http://k8s-favorite-service:8080")
 public interface FavoriteFeignClient {
-    @GetMapping("/api/favorite/newslinks/{userId}")
+    @GetMapping("/api/favorite/v1/newslinks/{userId}")
     List<String> getFavoriteNewsLinks(@PathVariable("userId") Long userId);
 }
