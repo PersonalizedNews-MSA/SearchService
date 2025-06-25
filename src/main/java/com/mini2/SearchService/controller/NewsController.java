@@ -33,10 +33,10 @@ public class NewsController {
 
 
     // feinclient를 사용하여 favoritenewsLinks를 불러온다.
-    @GetMapping("/favorite/newslinks")
-    public List<String> getFavoriteNewsLinks(@RequestParam Long userId) {
-        return newsService.getUserFavoriteNewsLinks(userId);
-    }
+//    @GetMapping("/favorite/newslinks")
+//    public List<String> getFavoriteNewsLinks(@RequestParam Long userId) {
+//        return newsService.getUserFavoriteNewsLinks(userId);
+//    }
 //    @GetMapping("/api/favorite/newslinks")
 //    public ResponseEntity<List<FavoriteNewsLinkResponse>> getFavoriteNewsLinks(
 //            @RequestParam("userId") Long userId){
@@ -46,12 +46,12 @@ public class NewsController {
 
 
 //    fein client 요청을 받는걸 테스트 해야한다.
-    @GetMapping("/api/favorite/v1/newslinks/{userId}")
-    public ResponseEntity<List<String>> favoriteNewsLinks(
-            @PathVariable Long userId
-    ){
-        List<String> favoriteNewsLinkList = newsService.getUserFavoriteLink(userId);
-        return ResponseEntity.ok(favoriteNewsLinkList);
-
-    }
+//    @GetMapping("/api/favorite/v1/newslinks/{userId}")
+//    public ResponseEntity<List<String>> favoriteNewsLinks(
+//            @PathVariable Long userId
+//    ){
+//        List<String> favoriteNewsLinkList = newsService.getUserFavoriteLink(userId);
+//        return ResponseEntity.ok(favoriteNewsLinkList);
+//
+//    }
 }

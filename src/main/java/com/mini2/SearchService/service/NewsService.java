@@ -177,20 +177,20 @@ public class NewsService {
                 .block();
     }
 
-    @Transactional
-    public List<String> getUserFavorite(Long userId) {
-        List<Favorite> list = favoriteRepository.findByUserId(userId);
-        if (list.isEmpty())
-            return null;
-        System.out.println("test\n");
-//        for (Favorite favorite : list) {
-//            System.out.println(favorite.getNewsLink()+"\n");
-//        }
-//        System.out.println("test end \n");
-        return list.stream()
-                .map(Favorite::getNewsLink)
-                .collect(Collectors.toList());
-    }
+//    @Transactional
+//    public List<String> getUserFavorite(Long userId) {
+//        List<Favorite> list = favoriteRepository.findByUserId(userId);
+//        if (list.isEmpty())
+//            return null;
+//        System.out.println("test\n");
+////        for (Favorite favorite : list) {
+////            System.out.println(favorite.getNewsLink()+"\n");
+////        }
+////        System.out.println("test end \n");
+//        return list.stream()
+//                .map(Favorite::getNewsLink)
+//                .collect(Collectors.toList());
+//    }
 
 
 
@@ -199,22 +199,23 @@ public class NewsService {
         return response;
     }
 
-    @Transactional
-    public List<String> getUserFavoriteLink(Long userId) {
-        List<Favorite> list = favoriteRepository.findByUserId(userId);
-        // 전체를 받아온다.
-        if (list.isEmpty())
-            return null;
-        List<String> responses = new ArrayList<>();
-        for (Favorite favorite : list) {
-//            System.out.println(favorite.getNewsLink()+"\n");
-            responses.add(favorite.getNewsLink());
-
-        }
-
-
-        return responses;
-    }
+    // 테스트용
+//    @Transactional
+//    public List<String> getUserFavoriteLink(Long userId) {
+//        List<Favorite> list = favoriteRepository.findByUserId(userId);
+//        // 전체를 받아온다.
+//        if (list.isEmpty())
+//            return null;
+//        List<String> responses = new ArrayList<>();
+//        for (Favorite favorite : list) {
+////            System.out.println(favorite.getNewsLink()+"\n");
+//            responses.add(favorite.getNewsLink());
+//
+//        }
+//
+//
+//        return responses;
+//    }
 
     public String dateParser(String input) {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("EEE, dd MMM yyyy HH:mm:ss Z", Locale.ENGLISH);
