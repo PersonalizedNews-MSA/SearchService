@@ -1,3 +1,6 @@
+#spring:
+#  profiles:
+#    active: ${PROFILE:prod}
 spring:
   profiles:
-    active: ${PROFILE:prod}
+    active: prod
