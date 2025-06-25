@@ -24,12 +24,12 @@ public class NewsController {
 
     private final NewsService newsService;
 
-    @GetMapping("/api/search/v1/{keyword}/{userId}")
+    @GetMapping("/api/search/v1/{keyword}")
     public ResponseEntity<List<NewsResponse>> searchNews(
-             @PathVariable String keyword,
-             @PathVariable Long userId
+             @PathVariable String keyword
+//             ,@PathVariable Long userId
     ) {
-        userId = Long.valueOf(GatewayRequestHeaderUtils.getUserIdOrThrowException());
+        Long userId = Long.valueOf(GatewayRequestHeaderUtils.getUserIdOrThrowException());
         List<NewsResponse> newsList = newsService.getSearchNews(keyword,userId);
         return ResponseEntity.ok(newsList);
     }
