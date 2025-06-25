@@ -1,6 +1,7 @@
 package com.mini2.SearchService.controller;
 
 
+import com.mini2.SearchService.common.web.context.GatewayRequestHeaderUtils;
 import com.mini2.SearchService.dto.response.FavoriteNewsLinkResponse;
 import com.mini2.SearchService.dto.response.NewsResponse;
 import com.mini2.SearchService.service.NewsService;
@@ -23,10 +24,12 @@ public class NewsController {
 
     private final NewsService newsService;
 
-    @GetMapping("/api/search/v1/{keyword}/{userId}")
+    @GetMapping("/api/search/v1/{keyword}")
     public ResponseEntity<List<NewsResponse>> searchNews(
-             @PathVariable String keyword,
-             @PathVariable Long userId) {
+             @PathVariable String keyword
+//             @PathVariable Long userId
+    ) {
+        Long userId = Long.valueOf(GatewayRequestHeaderUtils.getUserIdOrThrowException());
         List<NewsResponse> newsList = newsService.getSearchNews(keyword,userId);
         return ResponseEntity.ok(newsList);
     }
